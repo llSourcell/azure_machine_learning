@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 39,
+  "id": "12db921a-7c54-45b4-8c97-d939f6b6ae0f",
+  "activities": [
+    {
+      "id": "65cdbd0d-3031-421a-92ac-bcbcf6008879",
+      "name": "weight-height",
+      "blocks": [
+        {
+          "id": "0595caab-ec31-4e2b-bc79-0ceaf38a79a4",
+          "type": "Microsoft.DPrep.ReferenceActivityBlock",
+          "arguments": {
+            "reference": {
+              "referenceType": 1,
+              "referenceContainerPath": "./weight-height.dsource",
+              "referencedActivityId": "b0e6049e-bb72-465e-9b2a-7e4eee3f3de1",
+              "referencedBranchId": null,
+              "referencedStep": null,
+              "anonymousSteps": null
+            }
+          }
+        },
+        {
+          "id": "1eba7273-698d-402f-9a52-6b0a972a51f5",
+          "type": "Microsoft.DPrep.AddCustomColumnBlock",
+          "arguments": {
+            "columnId": "Heightft",
+            "priorColumnId": "Height",
+            "customExpression": "row.Height/12",
+            "codeBlockType": 0
+          }
+        },
+        {
+          "id": "adeb9fd7-1584-4ef0-a5ef-3f48e0a391a5",
+          "type": "Microsoft.DPrep.AdjustColumnPrecisionBlock",
+          "arguments": {
+            "decimalPlaces": 1,
+            "columnId": "Heightft"
+          }
+        },
+        {
+          "id": "a50ff63a-965e-47df-9f83-391a4a1d0b1e",
+          "type": "Microsoft.DPrep.AddCustomColumnBlock",
+          "arguments": {
+            "columnId": "Weightkg",
+            "priorColumnId": "Weight",
+            "customExpression": "row.Weight/2.2",
+            "codeBlockType": 0
+          }
+        },
+        {
+          "id": "0b0067ea-ee97-4149-baa2-49bcc4250983",
+          "type": "Microsoft.DPrep.AdjustColumnPrecisionBlock",
+          "arguments": {
+            "decimalPlaces": 1,
+            "columnId": "Weightkg"
+          }
+        }
+      ],
+      "inspectors": [
+        {
+          "id": "114c755b-bfd5-4633-a63d-b345446c4939",
+          "type": "Microsoft.DPrep.DataQualityInspector",
+          "arguments": {},
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "65cdbd0d-3031-421a-92ac-bcbcf6008879",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 1,
+              "referencedStepId": null,
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": false
+        }
+      ]
+    }
+  ],
+  "runConfigurations": []
+}

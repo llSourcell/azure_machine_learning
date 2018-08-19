@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 39,
+  "id": "e6408fe6-eb95-492a-a775-35999dd525c5",
+  "activities": [
+    {
+      "id": "b0e6049e-bb72-465e-9b2a-7e4eee3f3de1",
+      "name": "weight-height",
+      "blocks": [
+        {
+          "id": "2f815bb6-566e-44cc-97d8-69901e0ea184",
+          "type": "Microsoft.DPrep.DataSourceBlock",
+          "arguments": {
+            "path": {
+              "target": 0,
+              "resourceDetails": [
+                {
+                  "path": "./assets/weight-height.csv"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "fa1c00c5-7d61-4bf3-b26a-4f3b9d4144e3",
+          "type": "Microsoft.DPrep.ParseDelimitedBlock",
+          "arguments": {
+            "preview": false,
+            "columnHeadersMode": 1,
+            "separator": ",",
+            "fileEncoding": 0,
+            "skipRowsMode": 0,
+            "handleQuotedLineBreaks": false
+          }
+        },
+        {
+          "id": "d38d0ee4-8bc5-48c7-b293-491ea80f3432",
+          "type": "Microsoft.DPrep.SetColumnTypesBlock",
+          "arguments": {
+            "columnConversion": [
+              {
+                "columnId": "Height",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "Weight",
+                "typeProperty": 3,
+                "typeArguments": {}
+              }
+            ]
+          }
+        },
+        {
+          "id": "4d26efbf-db0b-40fa-b590-402d859f7576",
+          "type": "Microsoft.DPrep.SampleBlock",
+          "arguments": {
+            "samples": [
+              {
+                "sampleId": "1557fcb6-7d83-4bfd-bdd1-06d5bdceda39",
+                "sampleRevision": "6a8fbd70-c4b4-4749-a6de-36294ca7a6eb",
+                "sampleName": "Top 10000",
+                "sampleRunner": {
+                  "id": null,
+                  "type": 0
+                },
+                "remoteGeneratorProperties": {},
+                "sampleStrategy": 0,
+                "topArguments": {
+                  "sampleCount": 10000
+                },
+                "randomNArguments": {
+                  "sampleCount": 10000
+                },
+                "randomPercentArguments": {
+                  "probability": 0.1
+                },
+                "allowAutoGen": true,
+                "isDisabled": false
+              }
+            ],
+            "activeSample": "1557fcb6-7d83-4bfd-bdd1-06d5bdceda39"
+          }
+        },
+        {
+          "id": "a747594c-5f81-4a00-aef2-911538f133ef",
+          "type": "Microsoft.DPrep.HandlePathColumnBlock",
+          "arguments": {
+            "pathColumnOperation": 0
+          }
+        }
+      ],
+      "inspectors": [
+        {
+          "id": "397751fc-12af-4738-a6ea-e212606a7dc6",
+          "type": "Microsoft.DPrep.DataQualityInspector",
+          "arguments": {},
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "b0e6049e-bb72-465e-9b2a-7e4eee3f3de1",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 1,
+              "referencedStepId": null,
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": false
+        }
+      ]
+    }
+  ],
+  "runConfigurations": []
+}
