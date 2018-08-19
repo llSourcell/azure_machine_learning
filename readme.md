@@ -1,6 +1,6 @@
-# Linear Regression Machine learning model development and operationlization using Azure ML Workbench
+# Overview
 
-This repo walks you through the development and operationalization of a Linear regression Machine learning model using Azure Machine Learning workbench
+This is the code for [this](https://youtu.be/LQEyK4POowk) video on Youtube by Siraj Raval on Azure Machine Learning. This repo walks you through the development and operationalization of a Linear regression Machine learning model using Azure Machine Learning workbench. Credits for this code go to [brijrajsingh](https://github.com/brijrajsingh/LinearRegression-AMLWorkbench). 
 
 ### Pre-requisites
 
